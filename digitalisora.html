@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Óra</title>
+
+
+    <style>
+         #orakeret
+    {
+        margin           :  24px 0 48px 0    ;
+        width            :  612px            ;
+        border           :  4px solid rgb(90, 5, 69)   ;
+        border-radius    :  36px             ;
+        background-color :  rgb(241, 11, 184)           ;
+        box-shadow       :  8px 8px 8px rgb(241, 11, 184) ;
+        text-align       :  center           ;
+    }
+
+    #kijelzo1
+    {
+        padding          :  24px             ;
+        line-height      :  normal           ;
+        font-size        :  96px             ;
+        color            :  rgb(231, 154, 221)             ;
+    }
+
+    #kijelzo2
+    {
+        padding-bottom   :  24px             ;
+        line-height      :  normal           ;
+        font-size        :  36px             ;
+        color            :  rgb(241, 11, 184)             ;
+    }
+
+</style>
+
+
+
+
+<div id='orakeret'>
+    <div id='kijelzo1'></div>
+    <div id='kijelzo2'></div>
+</div>
+    </style>
+</head>
+<body>
+    <h1 >Soká lesz még Tavaszi szünet :(</h1>
+
+   <h1> A sötétség depressziós útján</h1>
+
+        <h3>A depresszió sötét árnyai között járok,
+        Mint egy elveszett erdő mélyén, hol nincs utam.
+        A szívemben zúgó vihar tombol és zakatol,
+        Elveszett vagyok, a fényt már nem találom.</h3>
+    <script>
+
+       
+    
+        function frissit()
+        {
+            most = new Date()
+            tavasziSzunet = new Date(2024, 2, 27, 12, 0)
+            nap = Math.floor((tavasziSzunet - most) / (1000 * 60 * 60 * 24));
+            maradek = (tavasziSzunet - most) % (1000 * 60 * 60 * 24)
+            console.log(maradek)
+            ora = Math.floor((maradek) / (1000 * 60 * 60 ));
+            maradek = (maradek) % (1000 * 60 * 60)
+            perc = Math.floor(maradek / (1000 * 60))
+            maradek = maradek % (1000 * 60)
+            mp =Math.floor( maradek / 1000)
+    
+    
+            if( ora  < 10 )   ora  = "0" + ora
+            if( perc < 10 )   perc = "0" + perc
+            if( mp < 10 )   mp = "0" + mp
+           
+    
+            kijelzo1.innerHTML = nap + ' nap<br>' + ora + ":" + perc + ":" + mp
+          
+        }
+    
+        setInterval('frissit()',1000)
+        frissit()
+    
+    
+    </script>
+    
+    
+    
+</body>
+</html>
